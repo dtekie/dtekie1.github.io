@@ -14,13 +14,6 @@ Process:
 
 output: balance
 */
-/**
- * 
- * @param {*} initialAmount 
- * @param {*} annualInterestRate 
- * @param {*} numberOfYears 
- * @returns 
- */
 
 function compoundInterest(
     initialAmount, 

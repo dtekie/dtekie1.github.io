@@ -1,7 +1,4 @@
 
-"use strict";
-/*eslint-disable
-*/
 /* #3. Defining table:
 Input:	
     cost of the house	
@@ -22,7 +19,6 @@ Process:
 
 output: down payment
 */
-
 function calcDownpayment(houseCost){
     let downpayment = 0;
     if (houseCost < 50_000) {
@@ -39,7 +35,6 @@ function calcDownpayment(houseCost){
     }
     return downpayment;
 }
-
 console.log("expect 2000: ", calcDownpayment(40000));
 console.log("expect 2500: ", calcDownpayment(50000));
 console.log("expect 7500: ", calcDownpayment(100000));
