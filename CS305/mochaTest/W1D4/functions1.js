@@ -1,8 +1,7 @@
 "use strict";
-
-module.exports = { maxThree, sum, multiply, 
-  findLongestWord,reverseArray,reverseArrayInPlace,
-  scoreExams, generateArray };
+// module.exports = { maxThree, sum, multiply, 
+//   findLongestWord,reverseArray,reverseArrayInPlace,
+//   scoreExams, generateArray };
 /**
  * get the largest number
  * @param {number} num1 - the first number
@@ -113,9 +112,9 @@ scores.push(count);
   return scores;
 }
 const studentAnswers = [
-  [1, 1, 2, 4],
-  [2, 1, 2, 2],
-  [3, 1, 3, 4],
+  [3, 1, 2, 4],
+  [3, 1, 2, 2],
+  [3, 1, 2, 4],
 ];
 const correctAnswers = [3, 1, 2, 4];
 console.log(scoreExams(studentAnswers, correctAnswers));

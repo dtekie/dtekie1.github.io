@@ -1,10 +1,10 @@
 "use strict";
-const assert = require("assert");
-//const { reverse } = require("dns");
-const functionsModule = require("./functions1.js");
-/* import from functions.js module */
-//#1
-const maxThree=functionsModule.maxThree;
+// const assert = require("assert");
+// //const { reverse } = require("dns");
+// const functionsModule = require("./functions1.js");
+// /* import from functions.js module */
+// //#1
+// const maxThree=functionsModule.maxThree;
 describe("check the maximum of three numbers",function(){
     it("11 is the max of the three", function(){
         assert.strictEqual(maxThree(10,9,11),11);
