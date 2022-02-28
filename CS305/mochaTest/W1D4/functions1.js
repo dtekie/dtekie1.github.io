@@ -1,7 +1,7 @@
 "use strict";
-// module.exports = { maxThree, sum, multiply, 
-//   findLongestWord,reverseArray,reverseArrayInPlace,
-//   scoreExams, generateArray };
+module.exports = { maxThree, sum, multiply, 
+  findLongestWord,reverseArray,reverseArrayInPlace,
+  scoreExams, generateArray };
 /**
  * get the largest number
  * @param {number} num1 - the first number
