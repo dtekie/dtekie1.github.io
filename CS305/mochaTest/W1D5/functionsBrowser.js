@@ -1,7 +1,5 @@
 "use strict";
 
-//module.exports = { double, times100, myMap };
-
 //#1
 /**
  * double a given number
@@ -11,6 +9,7 @@
 function double(num) {
   return num * 2;
 }
+console.log(double(2));
 
 //#2
 
@@ -22,6 +21,7 @@ function double(num) {
 function times100(num) {
   return num * 100;
 }
+console.log(times100(2));
 
 //3a.
 
@@ -38,6 +38,7 @@ function myMap(arr, double) {
   }
   return doubledElementsArray;
 }
+console.log(myMap([1,2,3]));
 
 
 
