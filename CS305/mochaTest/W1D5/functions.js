@@ -1,12 +1,12 @@
 "use strict";
 
-module.exports = { double, times100, myMap };
+//module.exports = { double, times100, myMap };
 
 //#1
 /**
  * double a given number
  * @param {number} num - the first number
- * @returns {number} double the number
+ * @returns {number} two times the number
  */
 function double(num) {
   return num * 2;
@@ -22,7 +22,6 @@ function double(num) {
 function times100(num) {
   return num * 100;
 }
-console.log(times100);
 
 //3a.
 
