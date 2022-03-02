@@ -1,10 +1,10 @@
 "use strict";
-//const assert = require("assert");
-//const functionsModule = require("./functions.js");
+const assert = require("assert");
+const functionsModule = require("./fnExpsTests.js");
 /* import from functions.js module */
 
 //#1
-//const double = functionsModule.double;
+const double = functionsModule.double;
 describe("doubles the number", function () {
   it("double", function () {
     assert.strictEqual(double(10), 20);
@@ -14,7 +14,7 @@ describe("doubles the number", function () {
   });
 });
 //#2
-//const times100 = functionsModule.times100;
+const times100 = functionsModule.times100;
 describe("make the number 100 fold", function () {
   it("multiplys by 100", function () {
     assert.strictEqual(times100(1), 100);
@@ -24,7 +24,7 @@ describe("make the number 100 fold", function () {
   });
 });
 //#3a
-//const myMap = functionsModule.myMap;
+const myMap = functionsModule.myMap;
 describe("maps the elements of the array to their double", function () {
     it("All elements of the array mapped to thier double", function () {
       assert.deepStrictEqual(myMap([1, 2, 3], double), [2, 4, 6]);
