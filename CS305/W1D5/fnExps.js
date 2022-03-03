@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = { double, times100, myMap };
+//module.exports = { double, times100, myMap };
 
 //#1
 /**
