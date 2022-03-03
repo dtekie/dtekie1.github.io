@@ -7,7 +7,7 @@
 // const calculator = myExports.calculator; //do this for all of the functions used in the Mocha tests
 
 describe("test calculator with values 2, 3", function () {
-//calculator.setValues(2,3); //values for the tests
+calculator.setValues(2,3); //values for the tests
 
 it("checks initial values 2 and 3", function () {
 assert.strictEqual(calculator.num1, 2);
