@@ -146,34 +146,34 @@ describe("convertToArrayOfNames", function () {
     let john = { name: "John", surname: "Smith", id: 1 };
     let pete = { name: "Pete", surname: "Hunt", id: 2 };
     let mary = { name: "Mary", surname: "Key", id: 3 };
-    
+
     let users = [john, pete, mary];
     assert.deepEqual(convertToArrayOfNames(users), [
       { fullName: "John Smith", id: 1 },
       { fullName: "Pete Hunt", id: 2 },
-      { fullName: "Mary Key", id: 3 }
+      { fullName: "Mary Key", id: 3 },
     ]);
   });
 });
 
 describe("getAverageAge", function () {
-    it("gets the average age", function () {
-        let john = { name: "John", age: 25 };
-        let pete = { name: "Pete", age: 30 };
-        let mary = { name: "Mary", age: 29 };
-        
-        let arr = [ john, pete, mary ];
-      assert.strictEqual(convertToArrayOfNames(arr), 28);
-    });
-  });
+  it("gets the average age", function () {
+    let john = { name: "John", age: 25 };
+    let pete = { name: "Pete", age: 30 };
+    let mary = { name: "Mary", age: 29 };
 
-  describe("sortByAge", function () {
-    it("sorts by age", function () {
-        let john = { name: "John", age: 25 };
-        let pete = { name: "Pete", age: 30 };
-        let mary = { name: "Mary", age: 28 };
-        
-        let arr = [ pete, john, mary ];
-      assert.deepEqual(sortByAge(arr), [ john, mary, pete ]);
-    });
+    let arr = [john, pete, mary];
+    assert.strictEqual(convertToArrayOfNames(arr), 28);
   });
+});
+
+describe("sortByAge", function () {
+  it("sorts by age", function () {
+    let john = { name: "John", age: 25 };
+    let pete = { name: "Pete", age: 30 };
+    let mary = { name: "Mary", age: 28 };
+
+    let arr = [pete, john, mary];
+    assert.deepEqual(sortByAge(arr), [john, mary, pete]);
+  });
+});
