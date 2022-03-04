@@ -12,71 +12,67 @@ The bank object should have a transactionsDB property, which will be an array of
 */
 
 const bank = {
-    transactionsDB: [],
-    
+  transactionsDB: [],
 };
 bank.transactionsDB = [
-    { customerId: 1, customerTransactions: [10, 50, -40] },
-    { customerId: 2, customerTransactions: [10, 10, -10] },
-    { customerId: 3, customerTransactions: [5, -5, 55] }];
-
-
+  { customerId: 1, customerTransactions: [10, 50, -40] },
+  { customerId: 2, customerTransactions: [10, 10, -10] },
+  { customerId: 3, customerTransactions: [5, -5, 55] },
+];
 /* this is complete, no need to modify.
 Saves this amount to the customerTransactions array for customerId id. */
 bank.saveTransaction = function (id, amount) {
-    const customer = bank.transactionsDB.find(customer => customer.customerId === id);
-    customer.customerTransactions.push(amount);
+  const customer = bank.transactionsDB.find(
+    (customer) => customer.customerId === id
+  );
+  customer.customerTransactions.push(amount);
 };
 
 bank.debit = function (id, amount) {
-    /* make sure current balance is > amount */
-    if (bank.balance <= 0){
-        console.log("You don't have sufficient balance");
-    }
-    else{
-        bank.balance = this.balance - amount;        
-        this.saveTransaction(id, amount);
-    }
-
+  /* make sure current balance is > amount */
+  if (bank.balance <= 0) {
+    console.log("You don't have sufficient balance");
+  } else {
+    //bank.balance = bank.balance - amount;
+    this.saveTransaction(id, amount);
+  }
 };
 
 bank.credit = function (id, amount) {
-this.saveTransaction(id, amount);
+  this.saveTransaction(id, amount);
 };
 
 bank.getBalance = function (id) {
-//IMPLEMENT THIS
-this.customer = bank.transactionsDB.find(customer => customer.customerId === id);
-return bank.balance();
+  //IMPLEMENT THIS
+  this.customer = bank.transactionsDB.find(
+    (customer) => customer.customerId === id
+  );
+  return bank.balance();
 };
 
 /**
  * @returns {number}  returns sum of all balances
  */
 bank.balance = function () {
-//IMPLEMENT THIS
+  //IMPLEMENT THIS
   bank.transactionsDB = [
     { customerId: 1, customerTransactions: [10, 50, -40] }, // 20
-  
     { customerId: 2, customerTransactions: [10, 10, -10] }, // 10
-  
     { customerId: 3, customerTransactions: [5, -5, 55] }, // 55
-  
   ];
-  
-  // console.log(bank.transactionsDB[0].customerId); // 1
-  // console.log(bank.transactionsDB[0].customerTransactions); // [10, 50, -40]  
+
   bank.balance = function () {
     let balance = 0;
-    let dataBase = bank.transactionsDB;
-  
     for (let i = 0; i < this.transactionsDB.length; i++) {
-      for (let j = 0; j < this.transactionsDB[i].customerTransactions.length; j++) {
-  
-        balance += dataBase[i].customerTransactions[j];
+      for (
+        let j = 0;
+        j < this.transactionsDB[i].customerTransactions.length;
+        j++
+      ) {
+        bank.balance += this.transactionsDB[i].customerTransactions[j];
       }
     }
-    return balance;
+    return bank.balance;
   };
   console.log("from bankBalance " + bank.balance());
 };
