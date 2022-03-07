@@ -1,18 +1,18 @@
 "use strict";
 /* global assert    */
 /* comment out the node specific code when going to the browser*/
-// const assert = require("assert"); //always need this with node
-// const myExports = require("./methods.js"); //with node need the name of your file with your functions here
-// const groupById = myExports.groupById; //do this for all of the functions used in the Mocha tests
-// const unique = myExports.unique;
-// const filterRangeInPlace = myExports.filterRangeInPlace;
-// const filterRange = myExports.filterRange;
-// const Calculator = myExports.Calculator;
-// const convertToArrayOfNames = myExports.convertToArrayOfNames;
-// const copySorted = myExports.copySorted;
-// const sortDescending = myExports.sortDescending;
-// const sortByAge = myExports.sortByAge;
-// const getAverageAge = myExports.getAverageAge;
+const assert = require("assert"); //always need this with node
+const myExports = require("./methods.js"); //with node need the name of your file with your functions here
+const groupById = myExports.groupById; //do this for all of the functions used in the Mocha tests
+const unique = myExports.unique;
+const filterRangeInPlace = myExports.filterRangeInPlace;
+const filterRange = myExports.filterRange;
+const Calculator = myExports.Calculator;
+const convertToArrayOfNames = myExports.convertToArrayOfNames;
+const copySorted = myExports.copySorted;
+const sortDescending = myExports.sortDescending;
+const sortByAge = myExports.sortByAge;
+const getAverageAge = myExports.getAverageAge;
 
 /*
 Write a function filterRange(arr, a, b) that gets an array arr, looks for elements with values higher or equal to a and lower or equal to b and return a result as an array.
@@ -173,7 +173,7 @@ describe("sortByAge", function () {
     let pete = { name: "Pete", age: 30 };
     let mary = { name: "Mary", age: 28 };
 
-    let arr = [pete, john, mary];
-    assert.deepEqual(sortByAge(arr), [john, mary, pete]);
+    let names = [pete, john, mary];
+    assert.deepEqual(sortByAge(names), ["John", "Pete", "Mary"]);
   });
 });
