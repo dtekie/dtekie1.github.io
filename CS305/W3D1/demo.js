@@ -134,3 +134,99 @@
 
 // const backToObject = JSON.parse(toJson);
 // console.log(backToObject);
+
+// function log(){ 
+//   console.log("No Arguments"); 
+// } 
+
+// function log(x){ 
+//   console.log("1 Argument: "+x); 
+// } 
+
+// function log(x,y){ 
+//   console.log("2 Arguments: "+x +", "+y); 
+// } 
+// log(); 
+//log(5); 
+// log(6,7);
+
+// function findMax(){ 
+//   let max =-Infinity; 
+//   for(let i=0;i<arguments.length;i++){ 
+//     if(arguments[i]>max){ 
+//       max =arguments[i]; 
+//     } 
+//   } 
+//   return max; 
+// } 
+// const max1 =findMax(1,123,500,115,66,88); 
+// const max2 =findMax(3,6,8,11,10);
+// console.log(max1,max2);
+
+// function sum(x,y,...more){
+//    //"more" is array of all extra passed params 
+//    let total =x +y; 
+//    if(more.length>0){ 
+//      for(let i=0;i<more.length;i++){ 
+//        total +=more[i]; 
+//       } 
+//     } 
+//     console.log("Total: "+total); 
+//     return total; 
+//   } 
+//   sum(5,5,5); 
+//   sum(6,6,6,6,6);
+//write a function, multiplyEvens , that can be called 
+//with any number of arguments and returns the product 
+//of the even arguments.
+//do first using the arguments object 
+//then using …rest parameter multiplyEvens (1, 6, 3, 4, 17, 2) → 48
+// function multiplyEvens(){
+//   let multEvens = 1;
+//   for (let arg of arguments){
+//     if (arg%2 ===0){
+//       multEvens *=arg;
+//     }
+//   }
+//   return multEvens;
+// }
+// console.log(multiplyEvens(1,6,3,4,17,2));
+
+// function multiplyEvens2(){
+//   return arguments.reduce((a,b)=> a*b);
+//     }
+// console.log(multiplyEvens(1,6,3,4,17,2));
+
+// function multiplyEvens3(x,y,...rest){
+//   let multEvens = x*y;
+//   for (let i = 0; i < rest.length; i++){
+//     if (rest[i]%2 ===0){
+//       multEvens *=rest[i];
+//   // let product = arguments.reduce((a,b)=> a*b);
+//   // return product;
+//     }
+//   }
+//   return multEvens;
+// }
+// console.log(multiplyEvens3(1,6,3,4,17,2));
+
+// function multiplyEvens4(x,y,...rest){
+//   //let multEvens = x*y;
+//   //for (let i = 0; i < rest.length; i++){
+//     // if (rest[i]%2 ===0){
+//     //   multEvens *=rest[i];
+//   let filterred = arguments.filter(item => item%2 ===0)
+//   return filterred.reduce((a,b)=> a*b);
+//     }
+
+// console.log(multiplyEvens4(1,6,3,4,17,2));
+
+// function sayHi() { 
+//   console.log('Hello'); 
+// } 
+// setTimeout( sayHi , 10000);
+
+function sayHi (phrase, who) { 
+  console.log( phrase + ', ' + who ); 
+} 
+setTimeout ( sayHi , 5000, "Hello", "John"); // Hello, John
