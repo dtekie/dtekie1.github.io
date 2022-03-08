@@ -1,10 +1,14 @@
 "use strict";
-/*eslint-disabled*/
-/* write a function, maxPoints, to find and return the maximum points of any single player.  */
+/*eslint-disable*/
+// /* write a function, maxPoints, to find and return the maximum points of any single player.  */
 // const player1 = {name: "Bob", points: [1, 2, 1]};
 // const player2 = {name: "Andre", points: [2, 0, 1]};
 // const player3 = {name: "Max", points: [1, 1, 1]};
 // const players = [player1, player2, player3];
+// // let mapPointsPlayer = players.map(item => item.points);
+// // console.log(mapPointsPlayer);
+// // let maxPointsPleyers = mapPointsPlayer.reduce((a,b) => a>b?a:b);
+// // console.log(maxPointsPleyers);
 
 // function sumPoints(arr) {
 //     let sum = 0;
@@ -15,21 +19,20 @@
 //     }
 //     return sum;
 // }
+// console.log(sumPoints(players));
 // function maxPoint(){
-//     let max = 0;
+//     let playerMaxScore = [];
 //     for (let player of players){
+//         let playerMax = player.points[0];
 //        for (let i = 0; i<player.points.length; i++){
-//             let playerMax = player.points[0];
-//             console.log(playerMax);
-//             // if (player.points[i])  > playerMax){
-//             //     playerMax = player.points[i];
+//             //playerMax = player.points[0];
+//             player.points[i] > playerMax ? player.points[i]: playerMax;
 //             }
+//             playerMaxScore.push(playerMax);
 //         }
-//         return playerMax;
+//         return playerMaxScore;
 //     }
-//     //console.log(max);
-// }
-// console.log(maxPoints(players))
+// console.log(maxPoint(players));
 
 // console.log("expect 10: ", maxPoints(players));
 // console.log(maxPoint(players));
@@ -99,17 +102,75 @@
 // console.log(courses);
 // we have an array with the name and surname
 
-let arr = ["John", "Smith"];
+// const peopleArray = [
+//     { name: "Sam", age: 15 },
+//     { name: "William", age: 6 },
+//     { name: "Lucy", age: 13 },
+//     { name: "Barney", age: 80 },
+//   ];
 
-// destructuring assignment
-// sets firstName = arr[0]
-// and surname = arr[1]
-let [firstName, surname] = arr;
+// function doubleAges(arr) {
+//     return arr.map((item) => ({ name: item.name, age: item.age * 2 }));
+//   }
+//   console.log(doubleAges(peopleArray));
 
-console.log(firstName); // John
-console.log(surname);  // Smith
+let user = {
+    name: "John",
+    age: 30
+  };
+  
+  // loop over keys-and-values
+  for (let [key, value] of Object.entries(user)) {
+    console.log(`${key}:${value}`); // name:John, then age:30
+  }
 
+  user = new Map();
+user.set("name", "John");
+user.set("age", "30");
 
+// Map iterates as [key, value] pairs, very convenient for destructuring
+for (let item of user) {
+  console.log(item); // name:John, then age:30
+}
+let guest = "Jane";
+let admin = "Pete";
 
+// Let's swap the values: make guest=Pete, admin=Jane
+[guest, admin] = [admin, guest];
 
+console.log(`${guest} , ${admin}`); // Pete Jane (successfully swapped!)
 
+let array = ["Banana", undefined, "orange", "manago", "peach"]
+let  [item1 = "lemon", item2 = 'Mandarine', ...rest] = array;
+console.log(item1);
+console.log(item2);
+console.log(rest);
+
+user = {
+    name: "John",
+    years: 30
+  };
+let {name: firstName,years: age,isAdmin = false} = user;
+console.log(firstName);
+console.log(age);
+console.log(isAdmin);
+      
+let salaries = {
+    "John": 100,
+    "Pete": 300,
+    "Mary": 250
+};
+function topSalary(salaries) {
+
+    let maxSalary = 0;
+    let maxName = null;
+  
+    for(const [name, salary] of Object.entries(salaries)) {
+      if (maxSalary < salary) {
+        maxSalary = salary;
+        maxName = name;
+      }
+    }
+  return maxName;
+  } 
+  console.log(topSalary(salaries));
