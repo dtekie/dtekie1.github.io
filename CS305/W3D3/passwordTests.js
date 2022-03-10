@@ -19,7 +19,7 @@ describe("fix function that loses 'this'", function () {
         assert.strictEqual(askPassword(user.loginOk.bind(user), user.loginFail.bind(user), "rockstar"), "John logged in");
     });
 
-    it("tests rocksta with call", function () {
+    it("tests rockstar with call", function () {
         assert.strictEqual(askPassword(user.loginOk.bind(user), user.loginFail.bind(user), "rockstar"), "John logged in");
         assert.strictEqual(askPassword(() => user.loginOk.call(user), () =>user.loginFail.call(user), "rockstar"), "John logged in");
         assert.strictEqual(askPassword(() => user.loginOk.apply(user), () =>user.loginFail.apply(user, []), "rockstar"), "John logged in");
