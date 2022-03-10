@@ -2,7 +2,8 @@
 {  
     "env": {"browser": true, "node": true, "es6": true, "mocha": true},     
     "extends": "eslint:recommended",     
-    "parserOptions": {"sourceType": "script"},     
+    "parserOptions": {"sourceType": "script",
+    "ecmaVersion": 9},     
     "rules": {         
         "strict": ["error", "global"],         
         "semi": ["warn", "always"],         
