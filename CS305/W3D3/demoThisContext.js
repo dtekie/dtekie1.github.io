@@ -102,28 +102,80 @@
 // return newObj;
 // });
   
-function askPassword(ok, fail) {
-  let prompt = "prompt-sync";
-  let password = prompt("Password?", '');
-  if (password == "rockstar") ok();
-  else fail();
+// function askPassword(ok, fail) {
+//   let prompt = "prompt-sync";
+//   let password = prompt("Password?", '');
+//   if (password == "rockstar") ok();
+//   else fail();
+// }
+
+// let user = {
+//   name: 'John',
+
+//   loginOk() {
+//     console.log(`${this.name} logged in`);
+//   },
+
+//   loginFail() {
+//     console.log(`${this.name} failed to log in`);
+//   },
+
+// };
+
+// //askPassword(user.loginOk, user.loginFail);
+// //askPassword(user.loginOk.bind(user), user.loginFail.bind(user));
+// askPassword(() => user.loginOk(), () => user.loginFail());
+
+// function foo(){
+//   console.log(this);
+// } 
+// const bob ={ 
+//   log:function(){ 
+//     console.log(this); 
+//   } 
+// }; 
+// console.log(this);// this is window in browser ({} in node**) 
+// foo();//foo() is called by window object (global in node) 
+// bob.log();//log() is called by the object, bob 
+
+// //"use strict"; 
+// function a() { 
+//   console.log(this);
+// } 
+// const b = { dog: 'fido', log: function() { 
+//   console.log(this);  
+// }
+// } 
+// console.log(this); //{}
+// a(); //global-undefined in strict mode
+// b.log(); //obj b
+// let mylog = b.log;
+// mylog (); //global-undefined in strict mode
+// let user = { firstName: "john" };
+
+// function func (phrase) { 
+//   console.log(phrase + ', ' + this.firstName) 
+// }
+// // bind this to user 
+// let funcUser = func.bind (user);
+// funcUser("Hello"); // Hello, John (argument "Hello" is passed, and this=user)
+// //console.log(funcUser("Hello"));
+
+const me ={ 
+  first:'Tina', 
+  last:'Xing', 
+  getFullName:function(){ 
+    return this.first +' '+ this.last; 
+  } 
 }
 
-let user = {
-  name: 'John',
+const log =function(height,weight){
+  // ‘this’ refers to the invoker 
+  console.log(this.getFullName()+ " " + height +' '+ weight); 
+}
+const logMe=log.bind(me);  
 
-  loginOk() {
-    console.log(`${this.name} logged in`);
-  },
-
-  loginFail() {
-    console.log(`${this.name} failed to log in`);
-  },
-
-};
-
-//askPassword(user.loginOk, user.loginFail);
-//askPassword(user.loginOk.bind(user), user.loginFail.bind(user));
-askPassword(() => user.loginOk(), () => user.loginFail());
-
-  
+logMe('180cm', '70kg'); // Tina Xing 180cm 70kg 
+log.call(me,'180cm','70kg');// Tina Xing 180cm 70kg 
+log.apply(me,['180cm','70kg']);// Tina Xing 180cm 70kg 
+log.bind(me,'180cm','70kg')(); // Tina Xing 180cm 70kg 

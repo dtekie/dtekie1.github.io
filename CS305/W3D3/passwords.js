@@ -1,73 +1,40 @@
 "use strict";
-/*eslint-disable*/
+/* exports at end of file since exporting an object, which can only be referenced after definition */
+/* eslint-disable */
+
 
 function askPassword(ok, fail, password) {
-  if (password === "rockstar") {
-      return ok();
-  } else {
-      return fail();
-  }
-}
 
-let user = {
-    name: 'John',
-
-    loginOk() {
-      return  this.name + ' logged in' ;
-    },
-
-    loginFail() {
-      return this.name + ' failed to log in' ;
-    }
-
-};
-
-let loginUser1 = askPassword(user.loginOk.bind(user), user.loginFail.bind(user), 'rockstar');
-console.log(loginUser1);
-
-function askPassword2(ok, fail, password) {
-    if (password === "rockstar") {
+    if (password == "rockstar") {
         return ok();
     } else {
         return fail();
     }
 }
 
-let user2 = {
-    name : 'Daniel',
-    
+let user = {
+    name: 'John',
     loginOk() {
-        return  this.name + ' logged in' ;
+        return `${this.name} logged in`;
     },
-    
     loginFail() {
-        return this.name + ' failed to log in' ;
-    }
-    
+        return `${this.name} failed to log in`;
+    },
 };
 
-let loginUser2 = askPassword2(user2.loginOk.bind(user2), user2.loginFail.bind(user2), 'rockstar');
-//let loginUser3 = askPassword2(user2.loginOk.apply(user2), user2.loginFail.apply(user2), ['rockstar1']);
-console.log(loginUser2);
-//console.log(loginUser3);
+function askPassword2(ok, fail, password) {
+    if (password == "rockstar") return ok();
+    else return fail();
+}
 
-askPassword(() => user.loginOk(true), () => user.loginFail(false));
+let user2 = {
+    name: 'John',
 
-  user = {
-      name: 'Dave',
-  
-      loginOk() {
-        return  this.name + ' logged in' ;
-      },
-  
-      loginFail() {
-        return this.name + ' failed to log in' ;
-      }
-  };
-  
-let partial = askPassword(user.loginOk.bind(user, true), user.loginFail.bind(user, false),'rockstar');
-console.log(partial);
+    login(result) {
+        return this.name + (result ? ' logged in' : ' failed to log in');
+    }
+};
 
 /* You need the module.exports when testing in node.  Comment it out when you send your file to the browser 
 */
-//module.exports = {askPassword, user, askPassword2, user2 }; //add all of your function names here that you need for the node mocha tests
+//module.exports = { askPassword, user, askPassword2, user2 }; //add all of your function names here that you need for the node mocha tests
