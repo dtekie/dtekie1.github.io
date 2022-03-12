@@ -3,26 +3,26 @@
 
 /*eslint-disable */
 /* You need the module.exports when testing in node.  Comment it out when you send your file to the browser */
-module.exports = {
-  doubleNums,
-  doubleAges,
-  filterEven,
-  filterOver10,
-  findEvenNum,
-  findEvenAge,
-  includesEvenNum,
-  includesEvenAge,
-  sumOfNumbers,
-  sumOfAges,
-  averageOfNumbers,
-  averageOfAges,
-  maxOfNumbers,
-  maxOfAges,
-  averageOfEvenNumbers,
-  averageOfOddNumbers,
-  averageOfEvenAges,
-  averageOfOddAges,
-};
+// module.exports = {
+//   doubleNums,
+//   doubleAges,
+//   filterEven,
+//   filterOver10,
+//   findEvenNum,
+//   findEvenAge,
+//   includesEvenNum,
+//   includesEvenAge,
+//   sumOfNumbers,
+//   sumOfAges,
+//   averageOfNumbers,
+//   averageOfAges,
+//   maxOfNumbers,
+//   maxOfAges,
+//   averageOfEvenNumbers,
+//   averageOfOddNumbers,
+//   averageOfEvenAges,
+//   averageOfOddAges,
+// };
 // }; //add all of your function names here that you need for the node mocha tests
 
 const numArray = [5, 0, 7, 77, -20, 300, 51, 2];
@@ -67,12 +67,12 @@ function findEvenAge(arr) {
 // console.log(findEvenAge(peopleArray));
 
 function includesEvenNum(arr) {
-  return arr.some(item => item % 2 ===0);
+  return arr.includes(item => item % 2 ===0);
 }
 // // // console.log(includesEvenNum(numArray));
 
 function includesEvenAge(arr) {
-  return arr.some(item => item.age % 2 === 0);
+  return arr.includes(item => item.age % 2 === 0);
 }
 // function includesEvenAge1(arr) {
 //   return arr.includes(function(item) { item.age % 2 === 0});
@@ -106,7 +106,7 @@ function averageOfNumbers(arr) {
 function averageOfAges(arr) {
   const mapAges = arr.map((item) => item.age);
   const sumAges = mapAges.reduce((a,b)=> a+b);
-  return (sumAges / arr.length).toFixed(2);
+  return (sumAges / mapAges.length).toFixed(2);
 }
 // console.log(averageOfAges(peopleArray));
 
