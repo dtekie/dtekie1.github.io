@@ -13,7 +13,7 @@ Make the transactionsDB private by making it a local variable in the makeBank fu
  * @returns {bank} factory function that builds and returns bank object
  */
 function makeBank() {
-  const bank = {};//functory function
+  //const bank = {};//functory function
   const transactionsDB = [
     { customerId: 1, customerTransactions: [10, 50, -40] },
     { customerId: 2, customerTransactions: [10, 10, -10] },
@@ -41,7 +41,39 @@ function makeBank() {
     return total;
   };
   //return makeBank;
-  return bank;
+  return makeBank;
 }
 makeBank();
+
+function makeBank1() {
+  const bank = {};//functory function
+  const transactionsDB = [
+    { customerId: 1, customerTransactions: [10, 50, -40] },
+    { customerId: 2, customerTransactions: [10, 10, -10] },
+    { customerId: 3, customerTransactions: [5, -5, 55] },
+  ];
+  //console.log(transactionsDB[0].customerTransactions[1]);
+
+  bank.getBalance = function (id) {
+    const customer = transactionsDB.find(
+      (customer) => customer.customerId === id
+    );
+    let balance = 0;
+    for (const trans of customer.customerTransactions) {
+      balance += trans;
+    }
+    return balance;
+  };
+  
+
+  bank.bankBalance = function () {
+    let total = 0;
+    for (const trans of transactionsDB) {
+      total += this.getBalance(trans.customerId);
+    }
+    return total;
+  };
+  //return makeBank;
+  return bank;
+}
 

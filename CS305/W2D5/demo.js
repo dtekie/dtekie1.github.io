@@ -206,19 +206,31 @@ It should return a new array of the same size with the
 function applied to each element of the input array.  
 It should not change the input array. 
 // */
-function myMap(arr,myFunc){
-    let myArr = [];
-    for (let i = 0; i < arr.length; i++){
-    myArr.push(myFunc(arr[i]));
-    }
-    return myArr;
-}
+// function myMap(arr,myFunc){
+//     let myArr = [];
+//     for (let i = 0; i < arr.length; i++){
+//     myArr.push(myFunc(arr[i]));
+//     }
+//     return myArr;
+// }
 
-function myFunc(num){
-return num * 2;
-}
-let arr = [1,2,3];
-console.log(myMap(arr,myFunc));
+// function myFunc(num){
+// return num * 2;
+// }
+// let arr = [1,2,3];
+// console.log(myMap(arr,myFunc));
+
+function averageOfEvenNumbers(arr) {
+    const evenArray = arr.filter((item) => item % 2 === 0);
+    const sumEvenArray = evenArray.reduce((a, b) => a + b,0);
+    const average = (sumEvenArray/evenArray.length).toFixed(2);
+    return average;
+  };
+  const numArray = [5, 0, 7, 77, -20, 300, 51, 2];
+  
+
+  const avg = averageOfEvenNumbers(numArray);
+  console.log(avg);
 
 
         

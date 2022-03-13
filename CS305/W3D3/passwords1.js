@@ -27,8 +27,11 @@ console.log(askPassword(WrapperOkApply, WrapperFailApply, 'rockstar'));
 console.log(askPassword(WrapperOkCall, WrapperFailCall, 'rockstar'));
 
 function WrapperOkApply() {
-    return user.loginOk.apply(user)
+    return user.loginOk.apply(user);
 }
+function () {user.loginOk.apply(user)};
+
+
 function WrapperFailApply(){
 return user.loginFail.apply(user)
 }

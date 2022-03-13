@@ -12,36 +12,35 @@ Make the transactionsDB private by making it a local variable in the makeBank fu
 /**
  * @returns {bank} factory function that builds and returns bank object
  */
-function makeBank() {
-  const bank = {};//functory function
+ function makeBank() {
   const transactionsDB = [
-    { customerId: 1, customerTransactions: [10, 50, -40] },
-    { customerId: 2, customerTransactions: [10, 10, -10] },
-    { customerId: 3, customerTransactions: [5, -5, 55] },
-  ];
-  console.log(transactionsDB[0].customerTransactions[1]);
-
-  makeBank.getBalance = function (id) {
-    const customer = transactionsDB.find(
-      (customer) => customer.customerId === id
-    );
-    let balance = 0;
-    for (const trans of customer.customerTransactions) {
-      balance += trans;
-    }
-    return balance;
-  };
+  { customerId: 1, customerTransactions: [10, 50, -40] },
+  { customerId: 2, customerTransactions: [10, 10, -10] },
+  { customerId: 3, customerTransactions: [5, -5, 55] }];
   
+  /**
+  * @returns {object} - a new objet
+  */
+  
+  function Bank() {
+  this.getBalance = function (idx) {
+  const customer = transactionsDB.find(customer => customer.customerId === idx);
 
-  makeBank.bankBalance = function () {
+  let balance = 0;
+  for (const trans of customer.customerTransactions) { balance += trans; }
+  return balance;
+  },
+  this.bankBalance = function () {
+
     let total = 0;
+    
     for (const trans of transactionsDB) {
-      total += makeBank.getBalance(trans.customerId);
+    
+    total += this.getBalance(trans.customerId);
     }
     return total;
-  };
-  //return makeBank;
-  return bank;
-}
-makeBank();
+    };
+    }
+    return new Bank();
+    }
 
