@@ -51,11 +51,6 @@ class Bank {
         let report = "";
         for (let i = 0; i < this._accounts.length; i++) {
             report += this._accounts[i].toString() + "\n"
-            // if ("_overdraft" in this._accounts[i]) {
-            //     report = report + `CheckingAccount ${this._accounts[i].getNumber()}: balance: ${this._accounts[i].getBalance()} overdraft limit: ${this._accounts[i].getOverdraft()}\n`
-            // } else if ("_interest" in this._accounts[i]) {
-            //     report = report + `SavingsAccount ${this._accounts[i].getNumber()}: balance: ${this._accounts[i].getBalance()} interest: ${this._accounts[i].getInterest()}\n`
-            // }
         }
         return report;
     }
