@@ -92,19 +92,71 @@
 // const person1 = new Person("Daniel",48);
 // console.log(person1.describe());
 
-let animal = {
-  eats: true,
-};
+// let animal = {
+//   eats: true,
+// };
 
-function Rabbit(name) {
-  this.name = name;
+// function Rabbit(name) {
+//   this.name = name;
+// }
+
+// Rabbit.prototype = animal;
+
+// let rabbit = new Rabbit("White Rabbit"); //  rabbit.__proto__ == animal
+
+// console.log( rabbit.eats ); // true
+// console.log( Rabbit.prototype.eats ); 
+
+// console.log( rabbit.eats ); // true
+// function makeCounter() {
+//   let count = 0;
+//   return function(increment) {
+//   if (increment === undefined) {
+//   count = count + 1;
+//   } else {
+//   count = count + increment;
+//   }
+//   if (increment > 3) {
+//   return "warning increment was by value greater than 3 "
+//   } else {
+//   return count;
+//   }
+//   }
+//   }
+  
+//   const counter = makeCounter();
+//   console.log(counter());
+//   console.log(counter(2));
+//   console.log(counter(10));
+
+function area() { 
+  return this.side * this.side 
+} 
+function Square(side){//IMPLEMENTATION NEEDED 
+  this.side = side;
 }
+Square.prototype = protoSquare;
+const square1 =  {side: 5};//IMPLEMENTATION NEEDED 
+class Square2 {
+  consttructor(side){
+    this.side = side;
+  }
+  area(){//IMPLEMENTATION NEEDED
+    return this.size * this.size;
+  } 
+}
+class Square2{
+  constructor(){
+    
+  }
+}
+  console.log("expect 25: ", square1.area()); 
+  console.log("expect 1: ", Object.getOwnPropertyNames); 
+  const constSquare1 = new Square(7); 
+  console.log("expect 49: ", constSquare1.area()); 
+  console.log("expect 1: ", Object.getOwnPropertyNames)
+  const classSquare = new Square2(10); console.log("expect 100: ",)
+  console.log("expect 1: ", classSquare.area ()); 
+  Object.getOwnPropertyNames (square1).length; 
+  console.log("expect: 1 ", Object.getOwnPropertyNames(classSquare).length);
 
-Rabbit.prototype = animal;
-
-let rabbit = new Rabbit("White Rabbit"); //  rabbit.__proto__ == animal
-
-console.log( rabbit.eats ); // true
-console.log( Rabbit.prototype.eats ); 
-
-console.log( rabbit.eats ); // true
