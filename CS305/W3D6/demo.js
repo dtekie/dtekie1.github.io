@@ -129,34 +129,75 @@
 //   console.log(counter(2));
 //   console.log(counter(10));
 
-function area() { 
-  return this.side * this.side 
-} 
-function Square(side){//IMPLEMENTATION NEEDED 
-  this.side = side;
-}
-Square.prototype = protoSquare;
-const square1 =  {side: 5};//IMPLEMENTATION NEEDED 
-class Square2 {
-  consttructor(side){
-    this.side = side;
-  }
-  area(){//IMPLEMENTATION NEEDED
-    return this.size * this.size;
-  } 
-}
-class Square2{
-  constructor(){
+// function area() { 
+//   return this.side * this.side 
+// } 
+// function Square(side){//IMPLEMENTATION NEEDED 
+//   this.side = side;
+// }
+// Square.prototype = protoSquare;
+// const square1 =  {side: 5};//IMPLEMENTATION NEEDED 
+// class Square2 {
+//   constructor(side){
+//     this.side = side;
+//   }
+//   area(){//IMPLEMENTATION NEEDED
+//     return this.size * this.size;
+//   } 
+// }
+// class Square2{
+//   constructor(){
     
-  }
-}
-  console.log("expect 25: ", square1.area()); 
-  console.log("expect 1: ", Object.getOwnPropertyNames); 
-  const constSquare1 = new Square(7); 
-  console.log("expect 49: ", constSquare1.area()); 
-  console.log("expect 1: ", Object.getOwnPropertyNames)
-  const classSquare = new Square2(10); console.log("expect 100: ",)
-  console.log("expect 1: ", classSquare.area ()); 
-  Object.getOwnPropertyNames (square1).length; 
-  console.log("expect: 1 ", Object.getOwnPropertyNames(classSquare).length);
+//   }
+// }
+//   console.log("expect 25: ", square1.area()); 
+//   console.log("expect 1: ", Object.getOwnPropertyNames); 
+//   const constSquare1 = new Square(7); 
+//   console.log("expect 49: ", constSquare1.area()); 
+//   console.log("expect 1: ", Object.getOwnPropertyNames)
+//   const classSquare = new Square2(10); console.log("expect 100: ",)
+//   console.log("expect 1: ", classSquare.area ()); 
+//   Object.getOwnPropertyNames (square1).length; 
+//   console.log("expect: 1 ", Object.getOwnPropertyNames(classSquare).length);
 
+// const player1 = {name: "Bob", points: [1, 2, 1]};
+// const player2 = {name: "Andre", points: [2, 0, 1]};
+// const player3 = {name: "Max", points: [1, 1, 1]};
+
+
+
+
+// const players = [player1, player2, player3];
+// console.log("expect 10: ", totalPoints(players));
+
+// function totalPoints(){
+// let sum = 0
+// for (let player of players) {
+// let totalPoints = 0;
+// for (let point of player.points){
+//   totalPoints+=point;
+// }
+// sum += totalPoints
+// }
+// return sum;
+// }
+// console.log(totalPoints());
+const bank = {    transactionsDB: [],};
+bank.transactionsDB = [
+    { customerId: 1, customerTransactions: [10, 50, -40] },
+    { customerId: 2, customerTransactions: [10, 10, -10] },
+    { customerId: 3, customerTransactions: [5, -5, 55] }];
+
+bank.getBalance = function (id) {
+    const customer = bank.transactionsDB.find(customer => customer.customerId === id);
+    let balance = 0;
+    for (const trans of customer.customerTransactions) {    balance += trans;   }
+    return balance;  };
+
+    bank.bankBalance = function () {
+      let total = 0;
+      for (const trans of this.transactionsDB) {
+      total += this.getBalance(trans.customerId);
+      }
+      return total;
+      };
